@@ -26,6 +26,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'wishlist',
+        children: [
+          {
+            path: '',
+            loadChildren: '../wishlist/wishlist.module#WishlistPageModule'
+          }
+        ]
+      },
+      {
         path: 'tab3',
         children: [
           {
