@@ -18,3 +18,9 @@ ionic cordova platform add android
 ionic cordova build ios
 ionic cordova emulate ios
 ```
+
+## scripts
+
+```
+npm start # start the app
+```
