@@ -1,9 +1,24 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
-  </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label color="dark" (click)="presentPopover()">月预算</ion-label>
+          <ion-label style="padding-left: 20%">{{balance}}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label color="dark" (click)="presentPopover()">余额</ion-label>
+          <ion-label style="padding-left: 20%">{{balance}}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+  <ion-fab vertical="top" horizontal="end">
+    <ion-fab-button size="small" translucent=true color="dark">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
