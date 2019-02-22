@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BudgetSummaryPopoverPageModule } from './budget-summary-popover/budget-summary-popover.module'
+import { AddExpenditurePopoverPageModule } from './add-expenditure-popover/add-expenditure-popover.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,8 @@ import { BudgetSummaryPopoverPageModule } from './budget-summary-popover/budget-
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    BudgetSummaryPopoverPageModule
+    BudgetSummaryPopoverPageModule,
+    AddExpenditurePopoverPageModule
   ],
   providers: [
     StatusBar,
