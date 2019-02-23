@@ -4,9 +4,9 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-  <ion-input
-    type="number"
-    [(ngModel)]="expenditure"
-    ></ion-input>
-  {{expenditure}} 
+  <ion-select [(ngModel)]="newExpenditure.expenditureType" interface="action-sheet">
+    <ion-select-option *ngFor="let type of expenditureTypeList" [value]="type">{{type}}</ion-select-option>
+  </ion-select>
+  <ion-icon name="add" (click)=addExpenditure()></ion-icon>
+  <ion-input type="number" [(ngModel)]="newExpenditure.expenditureNumber"></ion-input>
 </ion-content>
