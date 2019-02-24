@@ -13,9 +13,8 @@ export class Tab2Page implements OnInit {
   balance: number = 0;
 
   constructor(
-    public popoverController: PopoverController
+    public popoverController: PopoverController,
   ) {
-
   }
 
   ngOnInit() {
