@@ -10,8 +10,8 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BudgetSummaryPopoverPageModule } from './budget-summary-popover/budget-summary-popover.module'
-import { AddExpenditurePopoverPageModule } from './add-expenditure-popover/add-expenditure-popover.module'
+import { BudgetSummaryPopoverPageModule } from './budget-summary-popover/budget-summary-popover.module';
+import { AddExpenditurePopoverPageModule } from './add-expenditure-popover/add-expenditure-popover.module';
 
 @NgModule({
   declarations: [AppComponent],

@@ -10,11 +10,12 @@ import { PopoverController } from '@ionic/angular';
 
 export class AddExpenditurePopoverPage implements OnInit {
   expenditureList: Expenditure[];
+  currentDate: string = new Date().toISOString();
 
   newExpenditure: Expenditure = {
     expenditureNumber: 100,
     expenditureType: '餐饮',
-    date: new Date()
+    date: this.currentDate
   }
 
   expenditureTypeList: string[] = ['餐饮', '购物', '社交', '房租'];
@@ -34,6 +35,10 @@ export class AddExpenditurePopoverPage implements OnInit {
 
   dismiss (expenditure) {
     this.popoverController.dismiss(expenditure);
+  }
+
+  dateSelected (date) {
+    this.newExpenditure.date = date.detail.value;
   }
 
 }
