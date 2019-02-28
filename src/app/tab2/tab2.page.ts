@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { BudgetSummaryPopoverPage } from '../budget-summary-popover/budget-summary-popover.page'
 import { AddExpenditurePopoverPage } from '../add-expenditure-popover/add-expenditure-popover.page'
+import { Expenditure } from '../models/interfaces';
 
 @Component({
   selector: 'app-tab2',
@@ -11,6 +12,8 @@ import { AddExpenditurePopoverPage } from '../add-expenditure-popover/add-expend
 export class Tab2Page implements OnInit {
 
   balance: number = 0;
+  // TODO: read from db
+  expenditureList: Expenditure[] = [];
 
   constructor(
     public popoverController: PopoverController,
@@ -36,7 +39,11 @@ export class Tab2Page implements OnInit {
       event: ev,
       translucent: true
     });
-    return await popover.present();
+    await popover.present();
+
+    await popover.onDidDismiss().then((data) => {
+      this.expenditureList.push(data.data);
+    });
   }
 
 }

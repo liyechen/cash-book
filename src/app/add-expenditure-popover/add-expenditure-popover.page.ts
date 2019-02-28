@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Expenditure {
-  expenditureNumber: number
-  expenditureType: string
-}
+import { Expenditure } from '../models/interfaces';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-expenditure-popover',
@@ -12,22 +9,31 @@ interface Expenditure {
 })
 
 export class AddExpenditurePopoverPage implements OnInit {
+  expenditureList: Expenditure[];
+
   newExpenditure: Expenditure = {
     expenditureNumber: 100,
-    expenditureType: '餐饮'
+    expenditureType: '餐饮',
+    date: new Date()
   }
 
   expenditureTypeList: string[] = ['餐饮', '购物', '社交', '房租'];
-  expenditureList: Expenditure[] = [];
 
-  constructor() { }
+  constructor(
+    private popoverController: PopoverController
+    ) {
+
+   }
 
   ngOnInit() {
-
   }
 
   addExpenditure () {
-    this.expenditureList.push(this.newExpenditure);
+    this.dismiss(this.newExpenditure);
+  }
+
+  dismiss (expenditure) {
+    this.popoverController.dismiss(expenditure);
   }
 
 }
