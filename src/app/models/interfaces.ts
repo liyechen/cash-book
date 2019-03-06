@@ -3,3 +3,8 @@ export interface Expenditure {
     expenditureType: string
     date: string
 }
+
+export interface DailyExpenditure {
+    date: string,
+    expendList: Expenditure[]
+}

@@ -4,10 +4,10 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
+  <ion-icon name="add" (click)=addExpenditure()></ion-icon>
   <ion-select [(ngModel)]="newExpenditure.expenditureType" interface="action-sheet">
     <ion-select-option *ngFor="let type of expenditureTypeList" [value]="type">{{type}}</ion-select-option>
   </ion-select>
-  <ion-icon name="add" (click)=addExpenditure()></ion-icon>
   <ion-input type="number" [(ngModel)]="newExpenditure.expenditureNumber"></ion-input>
   <ion-datetime id="customDayShortNames" 
   display-format="DDD. MMM DD, YYYY"

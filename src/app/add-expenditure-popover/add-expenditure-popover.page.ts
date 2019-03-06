@@ -9,7 +9,7 @@ import { PopoverController } from '@ionic/angular';
 })
 
 export class AddExpenditurePopoverPage implements OnInit {
-  expenditureList: Expenditure[];
+  expenditureList: Expenditure[]; 
   currentDate: string = new Date().toISOString();
 
   newExpenditure: Expenditure = {
