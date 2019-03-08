@@ -14,4 +14,7 @@ import { Tab3Page } from './tab3.page';
   ],
   declarations: [Tab3Page]
 })
-export class Tab3PageModule {}
+export class Tab3PageModule {
+  // TODO: read from DB
+  budget: number = 0;
+}

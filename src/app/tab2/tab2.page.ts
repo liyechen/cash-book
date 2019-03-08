@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, IonList } from '@ionic/angular';
 import { BudgetSummaryPopoverPage } from '../budget-summary-popover/budget-summary-popover.page'
 import { AddExpenditurePopoverPage } from '../add-expenditure-popover/add-expenditure-popover.page'
 import { Expenditure, DailyExpenditure } from '../models/interfaces';
@@ -11,8 +11,9 @@ import { Expenditure, DailyExpenditure } from '../models/interfaces';
 })
 export class Tab2Page implements OnInit {
 
-  balance: number = 0;
   // TODO: read from db
+  budget: number = 0;
+  balance: number = 0;
   expenditureList: Expenditure[] = [];
   dailyExpendList: DailyExpenditure[] = [];
   date: string = new Date().toISOString();
@@ -36,7 +37,8 @@ export class Tab2Page implements OnInit {
     return await popover.present();
   }
 
-  async presentAddExpenditurePopover(ev: any) {
+  async presentAddExpenditurePopover(ev: any, mainList: IonList) {
+    mainList.closeSlidingItems();
     const popover = await this.popoverController.create({
       component: AddExpenditurePopoverPage,
       event: ev,
@@ -45,7 +47,7 @@ export class Tab2Page implements OnInit {
     await popover.present();
 
     await popover.onDidDismiss().then((data) => {
-      if (data) {
+      if (data && data.data) {
         this.expenditureList.push(data.data);
         this.formatExpendListByDate();
       }
@@ -76,5 +78,14 @@ export class Tab2Page implements OnInit {
         dateSet.add(dateStr);
       }
     }
-    }
+    this.dailyExpendList.sort((a: DailyExpenditure, b: DailyExpenditure) => {
+      const aSt = new Date(a.date);
+      const bSt = new Date(b.date);
+      return aSt.valueOf() > bSt.valueOf() ? 1 : -1;
+    })
+  }
+
+  deleteExpend(expend: DailyExpenditure) {
+    console.log(expend)
+  }
 }

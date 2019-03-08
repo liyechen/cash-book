@@ -18,21 +18,21 @@
   </ion-toolbar>
   <ion-fab vertical="top" horizontal="end">
     <ion-fab-button size="small" translucent=true color="dark">
-      <ion-icon name="add" (click)="presentAddExpenditurePopover()"></ion-icon>
+      <ion-icon name="add" (click)="presentAddExpenditurePopover(ev, mainList)"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
-  <ion-list>
+  <ion-list #mainList>
     <ion-item-group *ngFor="let dailyExpend of dailyExpendList">
-      <ion-item-divider color="light">
+      <ion-list-header color="light">
         <ion-label>{{dailyExpend.date}}</ion-label>
-      </ion-item-divider>
-      <ion-item-sliding>
-        <ion-item *ngFor="let expend of dailyExpend.expendList">
+      </ion-list-header>
+      <ion-item-sliding *ngFor="let expend of dailyExpend.expendList">
+        <ion-item>
           {{expend.expenditureNumber}}, {{expend.expenditureType}}
         </ion-item>
         <ion-item-options side="end">
-          <ion-item-option color="medium" (click)="deleteExpend(item)">delete</ion-item-option>
+          <ion-item-option color="medium" (click)="deleteExpend(expend)">delete</ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
     </ion-item-group>
